@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ace23705-838b-4c29-b7c6-f79e1a05c6da}</ProjectGuid>
-    <RootNamespace>CleanCode</RootNamespace>
+    <ProjectGuid>{edc437c8-7f10-45d4-84c7-03e18e7cbcdb}</ProjectGuid>
+    <RootNamespace>UnitTests</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -40,7 +40,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,30 +143,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CoreLoyalty.cpp" />
-    <ClCompile Include="CleanCode.cpp" />
-    <ClCompile Include="FuelController.cpp" />
-    <ClCompile Include="KrogerLoyalty.cpp" />
+    <ClCompile Include="CoreLoyaltyTest.cpp" />
+    <ClCompile Include="FuelControllerTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="boost\di.hpp" />
-    <ClInclude Include="CoreLoyalty.h" />
-    <ClInclude Include="FuelController.h" />
-    <ClInclude Include="ILoyalty.h" />
-    <ClInclude Include="KrogerLoyalty.h" />
+    <ProjectReference Include="..\CleanCode\CleanCode.vcxproj">
+      <Project>{ace23705-838b-4c29-b7c6-f79e1a05c6da}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\fmt.7.0.1\build\fmt.targets" Condition="Exists('..\packages\fmt.7.0.1\build\fmt.targets')" />
-    <Import Project="..\packages\gtest.1.7.0\build\native\gtest.targets" Condition="Exists('..\packages\gtest.1.7.0\build\native\gtest.targets')" />
     <Import Project="..\packages\gmock.1.11.0\build\native\gmock.targets" Condition="Exists('..\packages\gmock.1.11.0\build\native\gmock.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\fmt.7.0.1\build\fmt.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fmt.7.0.1\build\fmt.targets'))" />
-    <Error Condition="!Exists('..\packages\gtest.1.7.0\build\native\gtest.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\gtest.1.7.0\build\native\gtest.targets'))" />
     <Error Condition="!Exists('..\packages\gmock.1.11.0\build\native\gmock.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\gmock.1.11.0\build\native\gmock.targets'))" />
   </Target>
 </Project>

@@ -18,34 +18,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CleanCode.cpp">
+    <ClCompile Include="FuelControllerTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="KrogerLoyalty.cpp">
+    <ClCompile Include="CoreLoyaltyTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CoreLoyalty.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FuelController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ILoyalty.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="KrogerLoyalty.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CoreLoyalty.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="boost\di.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FuelController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,6 +4,6 @@
 class CoreLoyalty : public ILoyalty
 {
 public:
-	int getRewards() override;
+	int GetRewards() const override;
 };
 

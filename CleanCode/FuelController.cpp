@@ -1,44 +1,28 @@
-#include <iostream>
-#include "boost/di.hpp"
-#include "fmt/format.h"
-#include "ILoyalty.h"
+#include "FuelController.h"
 
-#include "CoreLoyalty.h"
-#include "KrogerLoyalty.h"
+const char* NO_REWARDS = "No rewards available";
 
-namespace di = boost::di;
+FuelController::FuelController(const ILoyalty& loyalty) : m_loyalty{loyalty} {
+  std::cout << "Fuel Controller\n";
+}
 
-class FuelController {
-private:
-	ILoyalty& m_loyalty;
+FuelController::FuelController(const ILoyalty& loyalty, int rewards)
+    : m_loyalty{loyalty} {
+  std::cout << "Fuel Controller with loyalty\n";
+}
 
-public:
-	FuelController(ILoyalty& loyalty) : m_loyalty{ loyalty }
-	{
-		std::cout << fmt::format("Fuel Controller\n");
-	}
+FuelController::~FuelController() {
 
-	FuelController(ILoyalty& loyalty, int rewards) : m_loyalty{ loyalty }
-	{
-		std::cout << fmt::format("Fuel Controller with loyalty\n");
-	}
+  std::cout << "Deallocation Fuel controller";
+}
 
-	void run() {
-		auto rewards = m_loyalty.getRewards();
+std::variant<std::string, int> FuelController::Run() {
+  auto rewards = m_loyalty.GetRewards();
 
-		if (rewards > 0)
-		{
-			m_loyalty.finalize();
-		}
-	}
-};
-
-int main(int argc, char** argv) {
-	auto injector = di::make_injector(
-		di::bind<ILoyalty>.to<CoreLoyalty>()
-	);
-	auto controller = injector.create<FuelController>();
-
-	controller.run();
-
+  if (rewards > 0) {
+    m_loyalty.Finalize();
+    return rewards;
+  } else {
+    return NO_REWARDS;
+  }
 }

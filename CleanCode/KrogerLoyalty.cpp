@@ -1,7 +1,7 @@
 #include <iostream>
 #include "KrogerLoyalty.h"
 
-int KrogerLoyalty::getRewards()
+int KrogerLoyalty::GetRewards() const
 {
 	std::cout << "Kroger Loyalty\n";
 	return 100;

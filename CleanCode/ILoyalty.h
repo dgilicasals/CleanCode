@@ -5,8 +5,9 @@ class ILoyalty
 {
 public:
 	virtual ~ILoyalty() noexcept = default;
-	virtual int getRewards() = 0;
-	void finalize() 
+	
+	virtual int GetRewards() const = 0;
+	void Finalize() const
 	{
 		std::cout << "Finalize loyalty transaction";
 	};
