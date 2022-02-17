@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Unit_Tests">
+      <UniqueIdentifier>{d0f8363a-25b5-480d-bf15-5b032b0f42d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -30,6 +33,30 @@
     <ClCompile Include="FuelController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest\gtest-all.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gmock\gmock-all.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DuckLoyalty.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Loyalty1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Loyalty2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Unit_Tests\CoreLoyaltyTest.cpp">
+      <Filter>Source Files\Unit_Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Unit_Tests\FuelControllerTest.cpp">
+      <Filter>Source Files\Unit_Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests.cpp">
+      <Filter>Source Files\Unit_Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ILoyalty.h">
@@ -45,6 +72,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FuelController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DuckLoyalty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Loyalty1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Loyalty2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoostLogging.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

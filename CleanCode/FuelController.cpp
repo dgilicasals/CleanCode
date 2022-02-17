@@ -12,15 +12,13 @@ FuelController::FuelController(const ILoyalty& loyalty, int rewards)
 }
 
 FuelController::~FuelController() {
-
-  std::cout << "Deallocation Fuel controller";
 }
 
 std::variant<std::string, int> FuelController::Run() {
   auto rewards = m_loyalty.GetRewards();
 
   if (rewards > 0) {
-    m_loyalty.Finalize();
+    //m_loyalty.Finalize();
     return rewards;
   } else {
     return NO_REWARDS;
